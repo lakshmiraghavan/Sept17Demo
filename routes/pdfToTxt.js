@@ -52,31 +52,31 @@ fs.readdir(pathToPdf, function(err, files) {
     if (err) return;
     files.forEach(function(f) {
        var fileName = f.slice(0,-4)
-        pdfToTxt(fileName);
-     //   getData(fileName);
+     //   pdfToTxt(fileName);
+      //  getData(fileName);
     });
 });
 
 function getData(filename){
-
-
     var path = saveTo + filename + '.txt';
    // console.log(path);
-    fs.readFile(path,  function(err, data){
+    fs.readFile(path, "utf-8", function(err, data){
         if(err) throw err;
      //   console.log("reading", filename, data);
-        var phoneNumber = phoneMatch.exec(data);
+        var phoneNumber = 0;
+        var email = '';
+
+            phoneNumber = phoneMatch.exec(data.toString())[0];
+
       //  console.log("==> phone",phoneNumber);
-        var email = emailMatch.exec(data);
+         email = emailMatch.exec(data.toString())[0] || null;
    //     console.log('==> email', email);
   //      console.log('==> name', filename);
         var resumeObj ={name: filename, timestamp: Date.now(), email: email, phone: phoneNumber };
      //   console.log(resumeObj);
         resumeInfo.push(resumeObj);
-      //  resumeObj ={};
         console.log(resumeInfo);
     })
-
 }
 
-getData("Steven_Dean");
+getData("Shu_Zhang");
