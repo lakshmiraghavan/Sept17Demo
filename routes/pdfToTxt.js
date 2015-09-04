@@ -69,7 +69,7 @@ function getData(filename){
             phoneNumber = phoneMatch.exec(data.toString())[0];
 
       //  console.log("==> phone",phoneNumber);
-         email = emailMatch.exec(data.toString())[0] || null;
+         email = emailMatch.exec(data.toString())[0];
    //     console.log('==> email', email);
   //      console.log('==> name', filename);
         var resumeObj ={name: filename, timestamp: Date.now(), email: email, phone: phoneNumber };
@@ -79,4 +79,4 @@ function getData(filename){
     })
 }
 
-getData("Shu_Zhang");
+getData("Merna_Girgis");
