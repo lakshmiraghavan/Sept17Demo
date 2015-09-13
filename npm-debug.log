@@ -1,0 +1,214 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'spawn' ]
+2 info using npm@2.7.3
+3 info using node@v0.10.25
+4 verbose node symlink /usr/local/bin/node
+5 warn package.json regex@0.1.1 'repositories' (plural) Not supported. Please pick one as the 'repository' field
+6 silly cache add args [ 'spawn', null ]
+7 verbose cache add spec spawn
+8 silly cache add parsed spec { raw: 'spawn',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'spawn',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 verbose addNamed spawn@*
+10 silly addNamed semver.valid null
+11 silly addNamed semver.validRange *
+12 silly addNameRange { name: 'spawn', range: '*', hasData: false }
+13 silly mapToRegistry name spawn
+14 silly mapToRegistry using default registry
+15 silly mapToRegistry registry https://registry.npmjs.org/
+16 silly mapToRegistry uri https://registry.npmjs.org/spawn
+17 verbose addNameRange registry:https://registry.npmjs.org/spawn not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/spawn
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 09:58:04
+21 verbose request id 6e01c6ebf5fec9a0
+22 http request GET https://registry.npmjs.org/spawn
+23 http 200 https://registry.npmjs.org/spawn
+24 silly get cb [ 200,
+24 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 silly get     etag: '"AMOGBVCSV0TXJVJ7XLNUGOYEC"',
+24 silly get     'content-type': 'application/json',
+24 silly get     'cache-control': 'max-age=60',
+24 silly get     'content-length': '1180',
+24 silly get     'accept-ranges': 'bytes',
+24 silly get     date: 'Wed, 09 Sep 2015 16:58:09 GMT',
+24 silly get     via: '1.1 varnish',
+24 silly get     age: '0',
+24 silly get     connection: 'keep-alive',
+24 silly get     'x-served-by': 'cache-lax1430-LAX',
+24 silly get     'x-cache': 'MISS',
+24 silly get     'x-cache-hits': '0',
+24 silly get     'x-timer': 'S1441817889.787048,VS0,VE53',
+24 silly get     vary: 'Accept' } ]
+25 verbose get saving spawn to /home/lakshmi/.npm/registry.npmjs.org/spawn/.cache.json
+26 silly addNameRange number 2 { name: 'spawn', range: '*', hasData: true }
+27 silly addNameRange versions [ 'spawn', [ '0.0.1' ] ]
+28 verbose addNamed spawn@0.0.1
+29 silly addNamed semver.valid 0.0.1
+30 silly addNamed semver.validRange 0.0.1
+31 silly mapToRegistry name spawn
+32 silly mapToRegistry using default registry
+33 silly mapToRegistry registry https://registry.npmjs.org/
+34 silly mapToRegistry uri https://registry.npmjs.org/spawn
+35 verbose addRemoteTarball https://registry.npmjs.org/spawn/-/spawn-0.0.1.tgz not in flight; adding
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/spawn/-/spawn-0.0.1.tgz',
+36 verbose addRemoteTarball   '6e9daba98c4722c04f9dce1945b0e7ae671dfe8e' ]
+37 info retry fetch attempt 1 at 09:58:09
+38 info attempt registry request try #1 at 09:58:09
+39 http fetch GET https://registry.npmjs.org/spawn/-/spawn-0.0.1.tgz
+40 http fetch 200 https://registry.npmjs.org/spawn/-/spawn-0.0.1.tgz
+41 silly fetchAndShaCheck shasum 6e9daba98c4722c04f9dce1945b0e7ae671dfe8e
+42 verbose addTmpTarball /tmp/npm-12101-a612214e/registry.npmjs.org/spawn/-/spawn-0.0.1.tgz not in flight; adding
+43 verbose addTmpTarball already have metadata; skipping unpack for spawn@0.0.1
+44 silly cache afterAdd spawn@0.0.1
+45 verbose afterAdd /home/lakshmi/.npm/spawn/0.0.1/package/package.json not in flight; writing
+46 verbose afterAdd /home/lakshmi/.npm/spawn/0.0.1/package/package.json written
+47 silly install resolved [ { name: 'spawn',
+47 silly install resolved     description: 'Seamless multi-process worker management',
+47 silly install resolved     version: '0.0.1',
+47 silly install resolved     author:
+47 silly install resolved      { name: 'Mirko Kiefer',
+47 silly install resolved        email: 'mail@mirkokiefer.com',
+47 silly install resolved        url: 'http://www.mirkokiefer.com' },
+47 silly install resolved     main: 'spawn',
+47 silly install resolved     directories: { test: './test' },
+47 silly install resolved     dependencies:
+47 silly install resolved      { webworker: 'https://github.com/mirkok/node-webworker/tarball/master',
+47 silly install resolved        underscore: 'https://github.com/mirkok/underscore/tarball/master' },
+47 silly install resolved     devDependencies: { vows: '*' },
+47 silly install resolved     engines: { node: '*' },
+47 silly install resolved     _id: 'spawn@0.0.1',
+47 silly install resolved     _engineSupported: true,
+47 silly install resolved     _npmVersion: '1.0.1rc6',
+47 silly install resolved     _nodeVersion: 'v0.4.5',
+47 silly install resolved     _defaultsLoaded: true,
+47 silly install resolved     dist:
+47 silly install resolved      { shasum: '6e9daba98c4722c04f9dce1945b0e7ae671dfe8e',
+47 silly install resolved        tarball: 'http://registry.npmjs.org/spawn/-/spawn-0.0.1.tgz' },
+47 silly install resolved     _shasum: '6e9daba98c4722c04f9dce1945b0e7ae671dfe8e',
+47 silly install resolved     _resolved: 'https://registry.npmjs.org/spawn/-/spawn-0.0.1.tgz',
+47 silly install resolved     _from: 'spawn@*' } ]
+48 info install spawn@0.0.1 into /home/lakshmi/WebstormProjects/Resume
+49 info installOne spawn@0.0.1
+50 verbose installOne of spawn to /home/lakshmi/WebstormProjects/Resume not in flight; installing
+51 verbose lock using /home/lakshmi/.npm/_locks/spawn-df90948cc428692e.lock for /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+52 silly install write writing spawn 0.0.1 to /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+53 silly cache addNamed cb spawn@0.0.1
+54 verbose unbuild node_modules/spawn
+55 silly gentlyRm /home/lakshmi/WebstormProjects/Resume/node_modules/spawn is being purged from base /home/lakshmi/WebstormProjects/Resume
+56 verbose gentlyRm don't care about contents; nuking /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+57 verbose tar unpack /home/lakshmi/.npm/spawn/0.0.1/package.tgz
+58 verbose tar unpacking to /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+59 silly gentlyRm /home/lakshmi/WebstormProjects/Resume/node_modules/spawn is being purged
+60 verbose gentlyRm don't care about contents; nuking /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+61 silly gunzTarPerm modes [ '755', '644' ]
+62 silly gunzTarPerm extractEntry .gitignore
+63 silly gunzTarPerm extractEntry package.json
+64 silly gunzTarPerm extractEntry readme.md
+65 silly gunzTarPerm extractEntry spawn.js
+66 silly gunzTarPerm extractEntry utils.js
+67 silly gunzTarPerm extractEntry worker_wrapper.js
+68 silly gunzTarPerm extractEntry test/spawn-test.js
+69 silly gunzTarPerm extractEntry test/worker-file.js
+70 info preinstall spawn@0.0.1
+71 silly prepareForInstallMany adding webworker@https://github.com/mirkok/node-webworker/tarball/master from spawn dependencies
+72 silly prepareForInstallMany adding underscore@https://github.com/mirkok/underscore/tarball/master from spawn dependencies
+73 silly cache add args [ 'webworker@https://github.com/mirkok/node-webworker/tarball/master',
+73 silly cache add   null ]
+74 verbose cache add spec webworker@https://github.com/mirkok/node-webworker/tarball/master
+75 silly cache add args [ 'underscore@https://github.com/mirkok/underscore/tarball/master',
+75 silly cache add   null ]
+76 verbose cache add spec underscore@https://github.com/mirkok/underscore/tarball/master
+77 silly cache add parsed spec { raw: 'webworker@https://github.com/mirkok/node-webworker/tarball/master',
+77 silly cache add   scope: null,
+77 silly cache add   name: 'webworker',
+77 silly cache add   rawSpec: 'https://github.com/mirkok/node-webworker/tarball/master',
+77 silly cache add   spec: 'https://github.com/mirkok/node-webworker/tarball/master',
+77 silly cache add   type: 'remote' }
+78 silly mapToRegistry name webworker@https://github.com/mirkok/node-webworker/tarball/master
+79 silly mapToRegistry using default registry
+80 silly mapToRegistry registry https://registry.npmjs.org/
+81 silly mapToRegistry uri https://registry.npmjs.org/webworker@https://github.com/mirkok/node-webworker/tarball/master
+82 verbose addRemoteTarball https://github.com/mirkok/node-webworker/tarball/master not in flight; adding
+83 verbose addRemoteTarball [ 'https://github.com/mirkok/node-webworker/tarball/master',
+83 verbose addRemoteTarball   null ]
+84 silly cache add parsed spec { raw: 'underscore@https://github.com/mirkok/underscore/tarball/master',
+84 silly cache add   scope: null,
+84 silly cache add   name: 'underscore',
+84 silly cache add   rawSpec: 'https://github.com/mirkok/underscore/tarball/master',
+84 silly cache add   spec: 'https://github.com/mirkok/underscore/tarball/master',
+84 silly cache add   type: 'remote' }
+85 silly mapToRegistry name underscore@https://github.com/mirkok/underscore/tarball/master
+86 silly mapToRegistry using default registry
+87 silly mapToRegistry registry https://registry.npmjs.org/
+88 silly mapToRegistry uri https://registry.npmjs.org/underscore@https://github.com/mirkok/underscore/tarball/master
+89 verbose addRemoteTarball https://github.com/mirkok/underscore/tarball/master not in flight; adding
+90 verbose addRemoteTarball [ 'https://github.com/mirkok/underscore/tarball/master', null ]
+91 info retry fetch attempt 1 at 09:58:10
+92 info attempt registry request try #1 at 09:58:10
+93 http fetch GET https://github.com/mirkok/node-webworker/tarball/master
+94 info retry fetch attempt 1 at 09:58:10
+95 info attempt registry request try #1 at 09:58:10
+96 http fetch GET https://github.com/mirkok/underscore/tarball/master
+97 http fetch 404 https://github.com/mirkok/underscore/tarball/master
+98 error fetch failed https://github.com/mirkok/underscore/tarball/master
+99 warn retry will retry, error on last attempt: Error: fetch failed with status code 404
+100 http fetch 404 https://github.com/mirkok/node-webworker/tarball/master
+101 error fetch failed https://github.com/mirkok/node-webworker/tarball/master
+102 warn retry will retry, error on last attempt: Error: fetch failed with status code 404
+103 info retry fetch attempt 2 at 09:58:20
+104 info attempt registry request try #1 at 09:58:20
+105 http fetch GET https://github.com/mirkok/underscore/tarball/master
+106 info retry fetch attempt 2 at 09:58:20
+107 info attempt registry request try #1 at 09:58:20
+108 http fetch GET https://github.com/mirkok/node-webworker/tarball/master
+109 http fetch 404 https://github.com/mirkok/underscore/tarball/master
+110 error fetch failed https://github.com/mirkok/underscore/tarball/master
+111 warn retry will retry, error on last attempt: Error: fetch failed with status code 404
+112 http fetch 404 https://github.com/mirkok/node-webworker/tarball/master
+113 error fetch failed https://github.com/mirkok/node-webworker/tarball/master
+114 warn retry will retry, error on last attempt: Error: fetch failed with status code 404
+115 info retry fetch attempt 3 at 09:59:21
+116 info attempt registry request try #1 at 09:59:21
+117 http fetch GET https://github.com/mirkok/underscore/tarball/master
+118 info retry fetch attempt 3 at 09:59:21
+119 info attempt registry request try #1 at 09:59:21
+120 http fetch GET https://github.com/mirkok/node-webworker/tarball/master
+121 http fetch 404 https://github.com/mirkok/underscore/tarball/master
+122 error fetch failed https://github.com/mirkok/underscore/tarball/master
+123 http fetch 404 https://github.com/mirkok/node-webworker/tarball/master
+124 error fetch failed https://github.com/mirkok/node-webworker/tarball/master
+125 verbose about to build /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+126 verbose unlock done using /home/lakshmi/.npm/_locks/spawn-df90948cc428692e.lock for /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+127 verbose stack Error: fetch failed with status code 404
+127 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/fetch.js:55:14)
+127 verbose stack     at Request.EventEmitter.emit (events.js:95:17)
+127 verbose stack     at Request.onRequestResponse (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1176:10)
+127 verbose stack     at ClientRequest.EventEmitter.emit (events.js:95:17)
+127 verbose stack     at HTTPParser.parserOnIncomingClient (http.js:1688:21)
+127 verbose stack     at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+127 verbose stack     at CleartextStream.socketOnData (http.js:1583:20)
+127 verbose stack     at CleartextStream.read [as _read] (tls.js:511:12)
+127 verbose stack     at CleartextStream.Readable.read (_stream_readable.js:320:10)
+127 verbose stack     at EncryptedStream.write [as _write] (tls.js:366:25)
+128 verbose cwd /home/lakshmi/WebstormProjects/Resume
+129 error Linux 3.16.0-30-generic
+130 error argv "node" "/usr/local/bin/npm" "install" "spawn"
+131 error node v0.10.25
+132 error npm  v2.7.3
+133 error fetch failed with status code 404
+134 error If you need help, you may report this error at:
+134 error     <https://github.com/npm/npm/issues>
+135 verbose exit [ 1, true ]
+136 verbose unbuild node_modules/spawn
+137 info preuninstall spawn@0.0.1
+138 info uninstall spawn@0.0.1
+139 verbose unbuild rmStuff spawn@0.0.1 from /home/lakshmi/WebstormProjects/Resume/node_modules
+140 info postuninstall spawn@0.0.1
+141 silly gentlyRm /home/lakshmi/WebstormProjects/Resume/node_modules/spawn is being purged from base /home/lakshmi/WebstormProjects/Resume
+142 verbose gentlyRm don't care about contents; nuking /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+143 silly vacuum-fs purging /home/lakshmi/WebstormProjects/Resume/node_modules/spawn
+144 silly vacuum-fs quitting because other entries in /home/lakshmi/WebstormProjects/Resume/node_modules

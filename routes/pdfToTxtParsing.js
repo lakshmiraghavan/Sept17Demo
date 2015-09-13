@@ -12,7 +12,7 @@ var spawn = require('child_process').spawn;
 var resumeInfo = [];
 
 var phoneMatch = /\({0,1}\s*\d{3}?\s*\){0,1}\-*\s*\d{3}?\s*\-*(\­\‐)*\s*\d{4}/gmi;
-var emailMatch = /[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?/i;
+var emailMatch = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
 
 function pdfToTxt(filename){
 
@@ -34,19 +34,23 @@ function pdfToTxt(filename){
 }
 
 function getData(filename){
+
     var path = saveTo + filename + '.txt';
     var resumeObj = {}
     // console.log(path);
     fs.readFile(path, "utf-8", function(err, data){
         if(err) throw err;
         //   console.log("reading", filename, data);
-        var phoneNumber = 0;
-        var email = '';
 
+        var email = '';
+        email = emailMatch.exec(data.toString())[0];
+     //   var email = "test";
+          var    phoneNumber = '0';
         phoneNumber = phoneMatch.exec(data.toString())[0];
 
+
         //  console.log("==> phone",phoneNumber);
-        email = emailMatch.exec(data.toString())[0];
+
         //     console.log('==> email', email);
         //      console.log('==> name', filename);
          resumeObj ={name: filename, timestamp: Date.now(), email: email, phone: phoneNumber };
@@ -62,23 +66,27 @@ function getData(filename){
 fs.readdir(pathToPdf, function(err, files) {
     if (err) return;
    files.forEach(function(f) {
-        var fileName = f.slice(0,-4);
-    //  console.log(fileName);
-   var p1 = new Promise(function(resolve, reject){
-      resolve(pdfToTxt(fileName));
+       var fileName = f.slice(0, -4);
+       console.log(fileName);
+
+       var p1 = new Promise(function (resolve, reject) {
+           //pdfToTxt(fileName);
+           var path = saveTo + fileName + '.txt';
+           fs.readFile(path, "utf-8", function (err, data) {
+               if (err) throw err;
+               var email = data.match(emailMatch)[0];
+               var phone = data.match(phoneMatch)[0];
+               console.log('emails', email);
+               console.log('phones', phone);
+               var resumeObj = {name: fileName, timestamp: Date.now(), email: email, phone: phone};
+               console.log(resumeObj);
+
+           })
+           resumeInfo.push(p1);
+
+       });
+     //  console.log("===>", resumeInfo);
 
    })
-      resumeInfo.push(p1);
-
-    });
-  //  console.log("===>",resumeInfo);
-    Promise.all(resumeInfo).then(function(filename){
-        console.log(filename);
-        filename.forEach(function(element, index, array){
-            getData(element);
-        })
-
-    })
-
 });
 

@@ -52,31 +52,35 @@ fs.readdir(pathToPdf, function(err, files) {
     if (err) return;
     files.forEach(function(f) {
        var fileName = f.slice(0,-4)
-     //   pdfToTxt(fileName);
-      //  getData(fileName);
+
+     //   getData(fileName);
     });
 });
 
 function getData(filename){
+    pdfToTxt(filename);
     var path = saveTo + filename + '.txt';
-   // console.log(path);
+    console.log(path);
     fs.readFile(path, "utf-8", function(err, data){
         if(err) throw err;
      //   console.log("reading", filename, data);
         var phoneNumber = 0;
         var email = '';
 
-            phoneNumber = phoneMatch.exec(data.toString())[0];
+            phoneNumber = phoneMatch.match(data.toString())[0];
 
       //  console.log("==> phone",phoneNumber);
-         email = emailMatch.exec(data.toString())[0];
+         email = emailMatch.match(data.toString())[0];
    //     console.log('==> email', email);
   //      console.log('==> name', filename);
         var resumeObj ={name: filename, timestamp: Date.now(), email: email, phone: phoneNumber };
      //   console.log(resumeObj);
         resumeInfo.push(resumeObj);
+        resumeObj={};
+        phoneNumber= 0;
+        email = '';
         console.log(resumeInfo);
     })
 }
 
-getData("Merna_Girgis");
+getData("Shu_Zhang");
