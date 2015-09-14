@@ -57,6 +57,7 @@ function getParsedFilePromise(path,filename) {
     });
 }
 router.get('/', function(req, res, next){
+setInterval(function(){
 fs.readdir(pathToPdf, function(err, files) {
     if (err) return;
     var promises = files.map(getPdfToTextPromise);
@@ -85,6 +86,7 @@ fs.readdir(pathToPdf, function(err, files) {
         });
     });
 });
+}, 10000);
     res.render('index',{title: "Resume Extractor"})
 });
 
