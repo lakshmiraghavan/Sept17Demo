@@ -3,15 +3,18 @@
  */
 var express = require('express');
 var router = express.Router();
-
+var path = require('path');
 var fs = require('fs');
+var uuid = require ('uuid');
 
 var Resume = require('../modules/Resume');
 
 
 
-var pathToPdf = "/home/lakshmi/Downloads/widget-resume-data-extraction-master/resumes/";
-var saveTo = "/home/lakshmi/Downloads/txt/";
+var pathToPdf = path.join(__dirname, '../pathToPdf/');
+console.log(pathToPdf);
+var saveTo = path.join(__dirname, '../saveTo/');
+console.log(saveTo);
 var spawn = require('child_process').spawn;
 
 var resumeInfo = [];
@@ -35,7 +38,7 @@ function getPdfToTextPromise(file) {
     });
 }
 
-function getParsedFilePromise(path,filename) {
+function getParsedFilePromise(path,filename, uuid) {
     return new Promise(function (resolve, reject) {
         fs.readFile(path, "utf-8", function(err, data) {
             if (err) console.log(err);
