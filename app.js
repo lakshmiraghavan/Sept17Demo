@@ -12,7 +12,6 @@ var getResumes = require('./routes/getResumes');
 
 //connect to database
 mongoose.connect('mongodb://localhost/test', function (err) {
-    console.log(err);
     if (!err) console.log('successfully connected to mongodb ... ');
     else console.log('was not able to connect to mongodb ... ');
 });

@@ -5,18 +5,11 @@ angular.module('myApp', []). controller('myCtrl', function($scope, $http){
    //$scope.test = "hello world"
    $scope.resumeObj = {};
     $scope.datalists = [];
-    $scope.getResumeInfo = function(){
 
-        $http.get('/getResumes').success(function(result){
-          $scope.resumeObj = result;
-            return $scope.resumeObj;
-        })
-
-    }
 
     $scope.showData = function( ) {
         $scope.curPage = 0;
-        $scope.pageSize = 2;
+        $scope.pageSize = 3;
 
         $http.get('/getResumes').success(function(result){
 

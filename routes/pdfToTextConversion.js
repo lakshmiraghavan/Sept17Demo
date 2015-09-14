@@ -18,7 +18,8 @@ var resumeInfo = [];
 
 
 var phoneMatch = /\({0,1}\s*\d{3}?\s*\){0,1}\-*\s*\d{3}?\s*\-*(\-\?)*\s*\d{4}/;
-var emailMatch = /[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?/i;
+var emailMatch =  /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/i;
+
 
 function getPdfToTextPromise(file) {
 
@@ -27,7 +28,7 @@ function getPdfToTextPromise(file) {
         var pdftotext    = spawn('pdftotext', [pathToPdf + fileName +'.pdf', saveTo + fileName + '.txt'],  {cwd: '/usr/local/bin/xpdfbin-linux-3.04/bin32'});
 
         pdftotext.on('close', function (code) {
-            console.log('child13 process exited with code ' + code);
+            console.log('Exit code' + code);
             //console.log(fileName);
             resolve(fileName);
         });
@@ -38,7 +39,7 @@ function getParsedFilePromise(path,filename) {
     return new Promise(function (resolve, reject) {
         fs.readFile(path, "utf-8", function(err, data) {
             if (err) console.log(err);
-            var searchPhone;
+           // var searchPhone;
             var phoneNumber;
             var email;
             phoneNumber = phoneMatch.exec(data.toString());
@@ -74,7 +75,7 @@ fs.readdir(pathToPdf, function(err, files) {
                 //console.log('object en promises then: ',object)
                 (new Resume(object)).save(function (err, response) {
                     if (err) {
-                        console.log('something broke');
+                        console.log('repeated');
                     } else {
                         console.log('Resume successfully inserted');
                     }

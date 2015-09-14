@@ -12,7 +12,7 @@ router.get('/', function (req, res) {
         if (err) {
             res.status(500).json({ message: 'Something Broke!' });
         } else {
-            res.status(200).json(results);
+            res.status(201).json(results);
         }
 
     })
