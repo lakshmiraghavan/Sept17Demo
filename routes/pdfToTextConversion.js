@@ -30,6 +30,7 @@ function getPdfToTextPromise(file) {
         var fileName = file.slice(0,-4);
         var pdftotext    = spawn('pdftotext', [pathToPdf + fileName +'.pdf', saveTo + fileName + '.txt'],  {cwd: '/usr/local/bin/xpdfbin-linux-3.04/bin32'});
 
+
         pdftotext.on('close', function (code) {
             console.log('Exit code' + code);
             //console.log(fileName);
@@ -43,6 +44,7 @@ function getParsedFilePromise(path,filename, uuid) {
         fs.readFile(path, "utf-8", function(err, data) {
             if (err) console.log(err);
            // var searchPhone;
+
             var phoneNumber;
             var email;
             phoneNumber = phoneMatch.exec(data.toString());
@@ -60,36 +62,36 @@ function getParsedFilePromise(path,filename, uuid) {
     });
 }
 router.get('/', function(req, res, next){
-setInterval(function(){
-fs.readdir(pathToPdf, function(err, files) {
-    if (err) return;
-    var promises = files.map(getPdfToTextPromise);
-    Promise.all(promises).then(function (filesname) {
-        console.log('files: ',filesname);
-        var readArr = [];
-        var resumeInfo =[];
-        filesname.forEach(function(name){
-            var path = saveTo + name + '.txt';
-            readArr.push(getParsedFilePromise(path,name));
-            //getData(file);
-        });
-        Promise.all(readArr).then(function (data) {
-            console.log('Objects: ',data);
-            data.forEach(function(object){
-                //console.log('object en promises then: ',object)
-                (new Resume(object)).save(function (err, response) {
-                    if (err) {
-                        console.log('repeated');
-                    } else {
-                        console.log('Resume successfully inserted');
-                    }
+    setInterval(function(){
+        fs.readdir(pathToPdf, function(err, files) {
+            if (err) return;
+            var promises = files.map(getPdfToTextPromise);
+            Promise.all(promises).then(function (filesname) {
+                console.log('files: ',filesname);
+                var readArr = [];
+                var resumeInfo =[];
+                filesname.forEach(function(name){
+                    var path = saveTo + name + '.txt';
+                    readArr.push(getParsedFilePromise(path,name));
+                    //getData(file);
                 });
+                Promise.all(readArr).then(function (data) {
+                    console.log('Objects: ',data);
+                    data.forEach(function(object){
+                        //console.log('object en promises then: ',object)
+                        (new Resume(object)).save(function (err, response) {
+                            if (err) {
+                                console.log('repeated');
+                            } else {
+                                console.log('Resume successfully inserted');
+                            }
+                        });
 
+                    });
+                });
             });
         });
-    });
-});
-}, 10000);
+    }, 10000);
     res.render('index',{title: "Resume Extractor"})
 });
 

@@ -7,7 +7,10 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 //var routes = require('./routes/index');
 var users = require('./routes/users');
-var routes = require('./routes/pdfToTextConversion');
+
+//var routes = require('./routes/pdfToTextConversion');
+var routes = require('./routes/asyncPdfToText');
+
 var getResumes = require('./routes/getResumes');
 
 //connect to database
