@@ -7,23 +7,19 @@ angular.module('myApp', []). controller('myCtrl', function($scope, $http){
     $scope.datalists = [];
 
 
+
     $scope.showData = function( ) {
         $scope.curPage = 0;
         $scope.pageSize = 3;
 
         $http.get('/getResumes').success(function(result){
-
             $scope.datalists = result;
             console.log("===>",$scope.datalists);
             $scope.numberOfPages = function() {
                 return Math.ceil($scope.datalists.length / $scope.pageSize);
             };
             console.log($scope.numberOfPages());
-
         })
-
-
-
       }
   //  $scope.showData();
     })

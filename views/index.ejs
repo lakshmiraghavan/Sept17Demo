@@ -45,23 +45,28 @@
        <table class="table table-condensed table-striped table-bordered table-hover  no-margin" ng-init="showData()">
            <thead class="tHead">
            <tr>
-               <th style="width:20%">Id</th>
-               <th style="width:20%">Name</th>
-               <th style="width:20%">Email</th>
-               <th style="width:20%">Phone</th>
-               <th style="width:20%">Time</th>
-
+               <th style="width:10%">Id</th>
+               <th style="width:10%">Name</th>
+               <th style="width:15%">Email</th>
+               <th style="width:10%">Phone</th>
+               <th style="width:10%">Batch Id</th>
+               <th style="width:5%">Status</th>
+               <th style="width:20%">Create Date</th>
+               <th style="width:20%">Process Date</th>
            </tr>
            </thead>
 
            <tbody>
 
            <tr class="paginationclass" ng-repeat="datalist in datalists | paginate: curPage * pageSize | limitTo: pageSize">
-               <td>{{datalist._id}}</td>
+               <td>{{datalist._id | limitTo: -10}}</td>
                <td>{{datalist.name}}</td>
                <td>{{datalist.email}}</td>
                <td>{{datalist.phone}}</td>
-               <td>{{datalist.timestamp}}</td>
+               <td>{{datalist.uuid | limitTo: -10}}</td>
+               <td>{{datalist.status}}</td>
+               <td>{{datalist.creationDate | date:'medium'}}</td>
+               <td>{{datalist.processDate| date:'medium'}}</td>
            </tr>
 
            </tbody>
@@ -85,13 +90,6 @@
                </ul>
            </div>
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> alex
    </div>
   </body>
 </html>
