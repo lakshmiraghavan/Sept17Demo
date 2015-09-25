@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var routes = require('./routes/asyncPdfToText');
 
 var getResumes = require('./routes/getResumes');
+//var getStatus = require('./routes/getStatus');
 
 //connect to database
 mongoose.connect('mongodb://localhost/test', function (err) {
@@ -37,6 +38,7 @@ app.use('/', routes);
 app.use('/users', users);
 //  app.use('/pdfToTextConversion', resume);
 app.use('/getResumes', getResumes);
+//app.use('/getStatus', getStatus);
 
 
 

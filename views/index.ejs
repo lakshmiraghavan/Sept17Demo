@@ -89,7 +89,15 @@
                    </li>
                </ul>
            </div>
-
+       <br>
+       <label>
+           Enter Batch Id:<input ng-model="batchID" type="text">
+           <button ng-click="statusCodes(batchID)">Enter</button>
+       </label>
+       <label>
+           Enter Skills<input ng-model="skill" type="text">
+           <button ng-click="skillSearch(skill)">Enter</button>
+       </label>
    </div>
   </body>
 </html>

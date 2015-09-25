@@ -13,7 +13,8 @@ var Resume = mongoose.model('resume', {
     status:String,
     email: String,
     phone: String,
-    uuid: String
+    uuid: String,
+    skills: mongoose.Schema.Types.Mixed
 
 });
 module.exports = Resume;
